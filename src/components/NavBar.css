@@ -1,0 +1,20 @@
+.Navigation {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+    color: red;
+    border: 2px red solid;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+ul li {
+    list-style-type: none;
+}
