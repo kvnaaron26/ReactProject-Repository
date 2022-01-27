@@ -1,10 +1,10 @@
-import React from "react";
 import './App.css';
 import NavBar from "./components/NavBar";
 
+
 const name = "Kevin";
 
-const App = () => {
+function App () {
   return (
     <>
       <NavBar />
@@ -15,3 +15,4 @@ const App = () => {
 };
 
 export default App;
+
