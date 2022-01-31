@@ -1,3 +1,4 @@
+
 const CartWidget = () => {
     return (
         <img
@@ -6,6 +7,6 @@ const CartWidget = () => {
             width="40px"
         />
     );
-};
+}
 
 export default CartWidget;
