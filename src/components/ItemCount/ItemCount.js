@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 
-
 function ItemCount () {
 
     const [counter, setCounter] = useState(0);

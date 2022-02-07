@@ -1,22 +1,59 @@
+// // import ItemListContainer from "./components/ItemListContainer";
+// // import NavBar from "./components/NavBar";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+// // Views 
+// import Home from "./views/Home/Home";
+// import About from "./views/About/About";
+// import Contact from "./views/Contact/Contact";
+// import Error from "./views/Error";
+
+// // Components
+// import Navigaton from "./components/Navigation/Navigation";
+
+
+// const App = () => {
+  
+  //   // return (
+    //   //   <>
+    //   //     <NavBar />
+    //   //     <Header greeting="Hola Kevin" /> 
+    //   //   </>
+    //   // );
+    //   ///////////////////////////////////////////////////
+    
+    //   return (
+      //     // <ItemListContainer />
+      //     <Router>
+      //       <div className='App'>
+      //         <Navigaton />
+      //       </div>
+      //       <Routes>
+      //         <Route path="/" element={<Home />} />
+      //         <Route path="/about" element={<About />} />
+      //         <Route path="/contact" element={<Contact />} />
+      //         <Route path="*" element={<Error />} />
+      //       </Routes>
+      //     </Router>
+      //   );
+      // };
+      
+      // export default App;
+      
+      // // Components
 import './App.css';
-import ItemListContainer from "./components/ItemListContainer";
-// import Header from "./components/Header";
-// import NavBar from "./components/NavBar";
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
 
-
-function App () {
-  // return (
-  //   <>
-  //     <NavBar />
-  //     <Header greeting="Hola Kevin" /> 
-  //   </>
-  // );
-  ///////////////////////////////////////////////////
-
+const App = () => {
   return (
-    <ItemListContainer />
+    <>
+    <NavBar />
+    <div className='App'>
+      <ItemListContainer />
+    </div>
+    </>
   );
-
-}
+};
 
 export default App;

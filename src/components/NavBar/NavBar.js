@@ -23,6 +23,8 @@ function NavBar () {
 export default NavBar;
 
 function ItemListContainer () {
-    return <p>5 Items</p>;
+    return (
+        <p>5 Items</p>
+    )
 };
 

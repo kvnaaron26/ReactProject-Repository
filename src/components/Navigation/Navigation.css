@@ -1,0 +1,23 @@
+.Navigation {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+  }
+  
+  .List-ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .List-ul li {
+    list-style-type: none;
+  }
+  
+  .Link {
+    color: white;
+  }
+  
