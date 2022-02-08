@@ -1,3 +1,33 @@
+import { useState } from 'react';
+import './App.css';
+import ItemCount from './components/ItemCount/ItemCount';
+
+function App() {
+  let [clicks, setClicks] = useState(0);
+
+  function onAdd() {
+    console.log("onAdd");
+  }
+
+  return (
+    <div className='App'>
+      
+      <h1>Contador: {clicks}</h1>
+      <ItemCount setClicks={setClicks}clicks={clicks} onAdd={onAdd} />
+
+    </div>
+  )
+}
+
+export default App;
+
+
+
+
+
+
+
+
 // // import ItemListContainer from "./components/ItemListContainer";
 // // import NavBar from "./components/NavBar";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -39,21 +69,23 @@
       // };
       
       // export default App;
-      
-      // // Components
-import './App.css';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
 
-const App = () => {
-  return (
-    <>
-    <NavBar />
-    <div className='App'>
-      <ItemListContainer />
-    </div>
-    </>
-  );
-};
 
-export default App;
+
+//--PRESENTE--//
+
+// import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+// import NavBar from './components/NavBar/NavBar';
+
+// const App = () => {
+//   return (
+//     <>
+//     <NavBar />
+//     <div className='App'>
+//       <ItemListContainer />
+//     </div>
+//     </>
+//   );
+// };
+
+// export default App;

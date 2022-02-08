@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+import '../../styles.css';
 
+const ItemCount = ({setClicks, clicks, onAdd}) => {
 
-function ItemCount () {
+    function handleAdd(n) {
+        setClicks(clicks + n);
+    }
+  
+    function handleSubstract(n){
+        clicks >= 1 && setClicks(clicks - n);
+    }
+  
+    function handleReset(){
+        setClicks(0);
+        onAdd();
+    }
+  
+    return <div>
 
-    const [counter, setCounter] = useState(0);
-    const [name, setName] = useState("Añadir al Carrito");
+        <button className='btnCount' onClick={() => handleAdd(1)}>
+          Sumar 1
+        </button>
+        <button className='btnCount' onClick={() => handleSubstract(1)}>
+          Restar 1
+        </button>
+        <button className='btnCount' onClick={() => handleReset()}>
+          Reiniciar
+        </button>
 
-  return (
-    <div className="App">
-
-      <h1>Desafio - Contador con boton</h1>
-      <h3>Jeans Vaquero / Coleccion W-F 2022 </h3>
-      <p>{counter}</p>
-      <button onClick={() => setCounter(counter + 1)}>+</button>
-      <button onClick={() => setCounter(counter - 1)}>-</button>
-      <button onClick={() => setCounter(0)}>Reset</button>
-      <p>{name}</p>
-      <button onClick={() => setName("Añadido con éxito")}>Añadir al Carrito</button>
-
-    </div>
-  );
-}
+    </div>;
+};
 
 export default ItemCount;

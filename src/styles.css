@@ -1,0 +1,11 @@
+.btnCount{
+    width: 90px;
+    height: 30px;
+    margin: 10px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: 500;
+  }
