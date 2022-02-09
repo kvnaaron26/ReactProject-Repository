@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Item from './Item';
+import './styles.css';
+import React from 'react'
 
 
-function ItemList ({items}) {
-    const [, setPhotos] = useState([]);
+function ItemList () {
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/photos/2')
-            .then((response) => response.json())
-            .then((json) => setPhotos(json));
-    }, []); 
+    const [producto, setProducto] = React.useState([])
+
+    React.useEffect(() => {
+        obtenerDatos()
+    }, [])
+
+    const obtenerDatos = async () => {
+        const data = await fetch('https://jsonplaceholder.typicode.com/users/1')
+        const users = await data.json()
+        setProducto(users)
+    }
 
     return (
         <div>
-            {items.map = ((photos) => {
-                <div>
-                    <Item data={photos} />
-                </div>
-            })}
+            <h1>Catalogo</h1>
+                {
+                    producto.map(item => (
+                        <li key={item.id}>
+                        {item.name} - {item.email}
+                        </li>
+                    ))
+                }
         </div>
-    );
-};
-
+    )
+}
 export default ItemList;

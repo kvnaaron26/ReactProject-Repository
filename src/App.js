@@ -1,30 +1,16 @@
-import { useState } from 'react';
+import React from 'react'
 import './App.css';
-import ItemCount from './components/ItemCount/ItemCount';
+import Item from './components/ItemListContainer/Item';
 
-function App() {
-  let [clicks, setClicks] = useState(0);
+const Catalogo = () => {
+    return (
+        <div className='App'>
+            <Item />
+        </div>
+    )
+};
 
-  function onAdd() {
-    console.log("onAdd");
-  }
-
-  return (
-    <div className='App'>
-      
-      <h1>Contador: {clicks}</h1>
-      <ItemCount setClicks={setClicks}clicks={clicks} onAdd={onAdd} />
-
-    </div>
-  )
-}
-
-export default App;
-
-
-
-
-
+export default Catalogo;
 
 
 
@@ -70,22 +56,3 @@ export default App;
       
       // export default App;
 
-
-
-//--PRESENTE--//
-
-// import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-// import NavBar from './components/NavBar/NavBar';
-
-// const App = () => {
-//   return (
-//     <>
-//     <NavBar />
-//     <div className='App'>
-//       <ItemListContainer />
-//     </div>
-//     </>
-//   );
-// };
-
-// export default App;

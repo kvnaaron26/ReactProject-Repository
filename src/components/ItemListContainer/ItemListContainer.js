@@ -4,8 +4,7 @@ function ItemListContainer () {
     return (
         <div>
             <ItemList />
-        </div>
-        
+        </div>   
     );
 }
   

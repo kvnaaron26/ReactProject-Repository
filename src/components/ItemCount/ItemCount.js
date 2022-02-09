@@ -14,7 +14,7 @@ const ItemCount = ({setClicks, clicks, onAdd}) => {
         setClicks(0);
         onAdd();
     }
-  
+    
     return <div>
 
         <button className='btnCount' onClick={() => handleAdd(1)}>
