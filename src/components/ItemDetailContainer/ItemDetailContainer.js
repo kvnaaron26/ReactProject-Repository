@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./Item.css";
+import "./ItemDetail.css";
 
 //Components
 import {
@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/material";
 
-function Item() {
+function ItemDetailContainer() {
   return (
     <Card className="CardContainer">
       <div className="CardTitle">
@@ -47,4 +47,4 @@ function Item() {
   );
 }
 
-export default Item;
+export default ItemDetailContainer;

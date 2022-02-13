@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import UserComponent from '../UserComponent/UserComponent';
+import React, { useState, useEffect } from "react";
+import UserComponent from "../UserComponent/UserComponent";
 
 const CardListComponent = () => {
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            // .then(json => console.log(json));
-            .then((json) => setUsers(json));
-    }, []); 
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      // .then(json => console.log(json));
+      .then((json) => setUsers(json));
+  }, []);
 
-    return (
-        <div>
-            {users.map((user) => {
-                return (
-                <div>
-                    <UserComponent data={user} />
-                </div>
-                );
-            })}
-        </div>
-    );
+  return (
+    <div>
+      {users.map((user) => {
+        return (
+          <div>
+            <UserComponent data={user} />
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default CardListComponent;
