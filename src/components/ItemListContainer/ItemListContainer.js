@@ -1,11 +1,7 @@
-import ItemList from "./ItemList";
+//Components
 
 function ItemListContainer() {
-  return (
-    <div>
-      <ItemList />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default ItemListContainer;

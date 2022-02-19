@@ -10,8 +10,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-
-function Item() {
+const Item = () => {
   return (
     <Card className="CardContainer">
       <div className="CardTitle">
@@ -45,6 +44,6 @@ function Item() {
       </div>
     </Card>
   );
-}
+};
 
 export default Item;

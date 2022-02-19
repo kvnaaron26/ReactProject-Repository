@@ -1,51 +1,51 @@
-body{
-    background-color: rgb(182, 178, 178);
-  }
-  .CardContainer {
-    width: 90%;
-    max-width: 1200px ;
-    margin: auto;
-    padding: 40px 0;
-  
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .CardImg{
-    width: 55%;
-    height: auto;
-    margin-right: auto;
-  }
-  
-  .CardTitle{
-    width: 90%;
-    height: 40px;
-    word-spacing: 5px;
-    text-transform: uppercase;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    line-height: 35px;
-    margin: 0 5%;
-    background-color: rgb(225, 226, 226);
-  }
-  
-  .CardContent{
-    background-color: rgb(225, 226, 226);
-    width: 30%;
-    margin: auto 5%;
-  }
-  
-  .CardButton{
-    width: 90%;
-    margin: 0 5%;
-    background-color: rgb(225, 226, 226);
-  }
-  .Buttons{
-    margin: 0 40px;
-    gap: 50px;
-  }
-  .btn{
-    text-decoration: none;
-    color: white;
-  }
+body {
+  background-color: rgb(182, 178, 178);
+}
+.CardContainer {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.CardImg {
+  width: 55%;
+  height: auto;
+  margin-right: auto;
+}
+
+.CardTitle {
+  width: 90%;
+  height: 40px;
+  word-spacing: 5px;
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+  margin: 0 5%;
+  background-color: rgb(225, 226, 226);
+}
+
+.CardContent {
+  background-color: rgb(225, 226, 226);
+  width: 30%;
+  margin: auto 5%;
+}
+
+.CardButton {
+  width: 90%;
+  margin: 0 5%;
+  background-color: rgb(225, 226, 226);
+}
+.Buttons {
+  margin: 0 40px;
+  gap: 50px;
+}
+.btn {
+  text-decoration: none;
+  color: white;
+}
