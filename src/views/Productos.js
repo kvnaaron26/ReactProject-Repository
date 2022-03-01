@@ -24,13 +24,24 @@ const Productos = () => {
     getProducts();
   }, []);
 
+  let Product;
+  const addToCart = (product) => {
+    Product = product;
+    Product["qty"] = 1;
+    Product["TotalProductPrice"] = Product.qty * Product.price;
+    fs.collection("Cart")
+      .doc(product.ID)
+      .set(Product)
+      .then(() => "Agregado al Carrito exitosamente.");
+  };
+
   return (
     <>
       {products.length > 0 && (
         <div>
           <h1 className="h1NavBar">Productos</h1>
           <div className="CardContainer">
-            <Products products={products} />
+            <Products products={products} addToCart={addToCart} />
           </div>
         </div>
       )}

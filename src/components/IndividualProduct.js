@@ -2,8 +2,11 @@ import "./Products.css";
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
-export const IndividualProduct = ({ individualProduct }) => {
+export const IndividualProduct = ({ individualProduct, addToCart }) => {
   const [count, setCounter] = useState(0);
+  const handleAddToCart = () => {
+    addToCart(individualProduct);
+  };
   return (
     <Card className="CardProduct">
       <Card.Img className="CardImg" variant="top" src={individualProduct.url} />
@@ -33,7 +36,11 @@ export const IndividualProduct = ({ individualProduct }) => {
             +
           </Button>
         </span>
-        <Button className="btnAddToCart btn-danger btn-md" variant="primary">
+        <Button
+          className="btnAddToCart btn-danger btn-md"
+          onClick={handleAddToCart}
+          variant="primary"
+        >
           Añadir al Carrito
         </Button>
       </Card.Body>
