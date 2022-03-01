@@ -1,48 +1,49 @@
 import "../App.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { auth } from "../firebase/firebaseConfig";
-// import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
 const LoginWidget = () => {
-  //   const history = useNavigate();
+  const history = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //   const [errorMsg, setErrorMsg] = useState("");
-  //   const [successMsg, setSuccesMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccesMsg] = useState("");
 
-  //   const handleLogin = (e) => {
-  //     e.preventDefault();
-  // console.log(email, password);
-  //     auth
-  //       .signInWithEmailAndPassword(email, password)
-  //       .then(() => {
-  //         setSuccesMsg("Sesión iniciada exitosamente.");
-  //         setEmail("");
-  //         setPassword("");
-  //         setErrorMsg("");
-  //         setTimeout(() => {
-  //           setSuccesMsg("");
-  //           history.push("/");
-  //         }, 3000);
-  //       })
-  //       .catch((error) => setErrorMsg(error.message));
-  //   };
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setSuccesMsg("Sesión iniciada exitosamente.");
+        setEmail("");
+        setPassword("");
+        setErrorMsg("");
+        setTimeout(() => {
+          setSuccesMsg("");
+          history.push("/");
+        }, 3000);
+      })
+      .catch((error) => setErrorMsg(error.message));
+  };
 
   return (
     <>
-      <h1 className="h1NavBar">Registrarse</h1>
+      <h1 className="h1NavBar">Iniciar Sesión</h1>
+      <p className="pAlerta">(Pagina en proceso de construcción)</p>
       <div className="container">
-        {/* {successMsg && (
+        {successMsg && (
           <>
             <div className="success-msg">{successMsg}</div>
             <br></br>
           </>
-        )} */}
-        <Form>
+        )}
+        <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Correo Electrónico</Form.Label>
             <Form.Control
@@ -84,12 +85,12 @@ const LoginWidget = () => {
             </Form.Text>
           </Form.Group>
         </Form>
-        {/* {errorMsg && (
-            <>
-              <div className="error-msg">{errorMsg}</div>
-              <br></br>
-            </>
-          )} */}
+        {errorMsg && (
+          <>
+            <div className="error-msg">{errorMsg}</div>
+            <br></br>
+          </>
+        )}
       </div>
     </>
   );

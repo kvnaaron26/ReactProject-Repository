@@ -11,9 +11,9 @@ import Productos from "./views/Productos";
 import Informacion from "./views/Informacion";
 import Contacto from "./views/Contacto";
 import CartWidget from "./views/CartWidget";
-import SignUpWidget from "./views/SignUpWidget";
-import LoginWidget from "./views/LoginWidget";
-import AddProduct from "./views/AddProduct";
+import SignUpWidget from "./components/SignUpWidget";
+import LoginWidget from "./components/LoginWidget";
+import AddProduct from "./components/AddProduct";
 
 const App = () => {
   return (

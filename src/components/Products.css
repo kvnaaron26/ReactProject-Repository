@@ -1,0 +1,44 @@
+.CardContainer {
+    width: 98%;
+    margin: 3rem 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+.CardProduct {
+    overflow: hidden;
+    max-height: 100rem;
+    box-shadow: 0 2px 20px rgb(197, 197, 197);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.CardImg {
+    width: 96%;
+    height: 300px;
+    margin: 2%;
+    max-width: 96%;
+}
+.CardDescription {
+    width: auto;
+    height: 210px;
+}
+
+.ItemCounter {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 12px 15%;
+  }
+.ItemCounterBtn {
+    border-radius: 5em;
+}
+
+.btnAddToCart {
+    width: 90%;
+    padding: 2%;
+    margin: 3%;
+}
