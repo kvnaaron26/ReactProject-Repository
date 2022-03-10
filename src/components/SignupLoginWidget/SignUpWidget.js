@@ -1,15 +1,17 @@
-import "../App.css";
+import "./SignupLoginWidget.css";
 import React, { useState } from "react";
-import { auth, fs } from "../firebase/firebaseConfig";
+import { auth, fs } from "../../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
 const SignUpWidget = () => {
   const history = useNavigate();
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccesMsg] = useState("");
 

@@ -1,3 +1,5 @@
+import "../App.css";
+
 const Informacion = () => {
   return (
     <div>

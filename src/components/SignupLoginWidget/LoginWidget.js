@@ -1,7 +1,7 @@
-import "../App.css";
+import "./SignupLoginWidget.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/firebaseConfig";
+import { auth } from "../../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 

@@ -1,55 +1,55 @@
 .Navigation {
-  display: flex;
-  width: 100%;
-  height: 5em;
-  background-color: rgb(155, 163, 163);
-  color: rgb(56, 52, 52);
-  font-weight: 400;
-  justify-items: center;
-}
-.List-ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 70%;
-  margin: 2%;
-}
-.btnNav {
-  font-size: 16px;
-  max-height: 80px;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: none;
-  color: rgb(39, 39, 39);
-}
-.btnNav :hover{
-  font-size: 18px ;
-  color: black;
-}
-.btnCartWidget :hover {
-  width: 55px;
-  height: auto;
-}
-.btnSignUpWidget :hover {
-  width: 40px;
-  height: auto;
-}
-
-.Widgets {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 20%;
-  margin: 3%;
-  flex-direction: row;
-  gap: 45px;
-}
-.CartWidget {
-  width: 50px;
-  height: auto;
-}
-.SignUpWidget{
-  width: 36px;
-  height: auto;
-  margin-bottom: 3px;
-}
+    display: flex;
+    width: 100%;
+    height: 5em;
+    background-color: rgb(155, 163, 163);
+    color: rgb(56, 52, 52);
+    font-weight: 400;
+    justify-items: center;
+  }
+  .List-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 2%;
+  }
+  .btnNav {
+    font-size: 16px;
+    max-height: 80px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: none;
+    color: rgb(39, 39, 39);
+  }
+  .btnNav :hover{
+    font-size: 18px ;
+    color: black;
+  }
+  .btnCartWidget :hover {
+    width: 55px;
+    height: auto;
+  }
+  .btnSignUpWidget :hover {
+    width: 40px;
+    height: auto;
+  }
+  
+  .Widgets {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    margin: 3%;
+    flex-direction: row;
+    gap: 45px;
+  }
+  .CartWidget {
+    width: 50px;
+    height: auto;
+  }
+  .SignUpWidget{
+    width: 36px;
+    height: auto;
+    margin-bottom: 3px;
+  }

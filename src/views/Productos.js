@@ -1,7 +1,8 @@
+import "../App.css";
 import React, { useEffect, useState } from "react";
 import Products from "../components/Products";
-
 import { fs } from "../firebase/firebaseConfig";
+
 const Productos = () => {
   const [products, setProducts] = useState([]);
 
