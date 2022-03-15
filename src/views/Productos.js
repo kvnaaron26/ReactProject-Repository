@@ -1,9 +1,45 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
 import Products from "../components/Products";
-import { fs } from "../firebase/firebaseConfig";
+import { auth, fs } from "../firebase/firebaseConfig";
+import NavBar from "../components/NavBar/NavBar";
 
-const Productos = () => {
+const Productos = (props) => {
+  //Get Current User - Signup, Login, etc.
+  function GetCurrentUser() {
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          fs.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              setUser(snapshot.data().FullName);
+            });
+        } else {
+          setUser(null);
+        }
+      });
+    }, []);
+    return user;
+  }
+  const user = GetCurrentUser;
+
+  function GetUserUid() {
+    const [uid, setUserUid] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          setUserUid(user.uid);
+        }
+      });
+    }, []);
+    return uid;
+  }
+
+  const uid = GetUserUid();
+
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -27,17 +63,25 @@ const Productos = () => {
 
   let Product;
   const addToCart = (product) => {
+    if (uid !== null) {
+      console.log(product);
+    } else {
+      props.history("/loginwidget");
+    }
     Product = product;
     Product["qty"] = 1;
     Product["TotalProductPrice"] = Product.qty * Product.price;
-    fs.collection("Cart")
+    fs.collection("Cart" + uid)
       .doc(product.ID)
       .set(Product)
-      .then(() => "Agregado al Carrito exitosamente.");
+      .then(() => {
+        console.log("Agregado al Carrito exitosamente.");
+      });
   };
 
   return (
     <>
+      <NavBar user={user} />
       {products.length > 0 && (
         <div>
           <h1 className="h1NavBar">Productos</h1>
@@ -46,7 +90,9 @@ const Productos = () => {
           </div>
         </div>
       )}
-      {products.length < 1 && <div>Porfavor espere ...</div>}
+      {products.length < 1 && (
+        <div className="WaitMsg">Porfavor espere ...</div>
+      )}
     </>
   );
 };

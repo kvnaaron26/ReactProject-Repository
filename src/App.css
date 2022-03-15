@@ -1,5 +1,10 @@
-body {
-  background-color: rgb(223, 223, 223);
+.App {
+  background-color: rgb(236, 236, 236);
+  width: 100%;
+  min-height: 60em;
+  margin-top: 5em;
+  margin-bottom: 10px;
+  padding: 2px;
 }
 
 .Link {
@@ -9,13 +14,13 @@ body {
 /******************** VIEWS ********************/
 /***********************************************/
 .h1NavBar {
-  width: 30%;
+  width: 16%;
   height: 60px;
-  margin: 10px 35%;
-  background-color: rgb(184, 184, 184);
-  border: solid rgb(184, 184, 184);
-  border-radius: 10px;
-  font-size: 2em;
+  margin: 15px 42%;
+  background-color: rgb(202, 202, 202);
+  border: none;
+  border-radius: 8px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,15 +54,26 @@ body {
   margin: 0 10%;
 }
 .homeLogo {
-  width: 28%;
+  width: 20%;
   height: auto;
   padding: 0 2%;
-  margin: 0 34%;
+  margin: 0 40%;
   align-items: center;
 }
 
 /*********************** PRODUCTOS ***********************/
-
+.WaitMsg {
+  width: 170px;
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-weight: 270;
+  color: rgb(41, 41, 41);
+  background-color: rgb(202, 202, 202);
+  border-radius: 4px;
+}
 /********************** INFORMACION **********************/
 
 /*********************** CONTACTO ************************/
@@ -69,3 +85,23 @@ body {
 /********************** SIGNUPLOGIN **********************/
 
 /************************* CART **************************/
+.EmptyCart {
+  width: 40%;
+  margin: 10em 30%;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-weight: 270;
+  color: rgb(41, 41, 41);
+  background-color: rgb(223, 223, 223);
+  border-radius: 4px;
+}
+/************************* ERROR **************************/
+.Error404 {
+  width: 60%;
+  height: auto;
+  margin: 20%;
+  align-items: center;
+  text-align: center;
+}

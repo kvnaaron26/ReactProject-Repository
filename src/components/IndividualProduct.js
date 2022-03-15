@@ -2,8 +2,8 @@ import "./Products.css";
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
-export const IndividualProduct = ({ individualProduct, addToCart }) => {
-  const [count, setCounter] = useState(0);
+const IndividualProduct = ({ individualProduct, addToCart }) => {
+  const [count, setCounter] = useState(1);
   const handleAddToCart = () => {
     addToCart(individualProduct);
   };
@@ -11,35 +11,43 @@ export const IndividualProduct = ({ individualProduct, addToCart }) => {
     <Card className="CardProduct">
       <Card.Img className="CardImg" variant="top" src={individualProduct.url} />
       <Card.Body>
-        <Card.Title>{individualProduct.title}</Card.Title>
+        <Card.Title className="CardTitle">{individualProduct.title}</Card.Title>
         <hr />
         <Card.Text className="product-text description CardDescription">
-          {individualProduct.description}
+          <p align="center">{individualProduct.description}</p>
         </Card.Text>
         <hr />
-        <Card.Text className="product-text price text-center">
-          ${individualProduct.price}
+        <Card.Text className="product-text price text-center CardPrice">
+          $ {individualProduct.price}
         </Card.Text>
         <hr />
         <span className="ItemCounter">
           <Button
             className="ItemCounterBtn btn-md cart-btn add"
             onClick={() => count >= 1 && setCounter(count - 1)}
+            variant="success"
           >
             -
           </Button>
-          <p>{count}</p>
+          <div className="CardQtyContainer">
+            <p className="CardQty">{count}</p>
+          </div>
           <Button
             className="ItemCounterBtn btn-md cart-btn remove"
             onClick={() => setCounter(count + 1)}
+            variant="success"
           >
             +
           </Button>
         </span>
+        <hr />
+        <Button className="CardButton btn-md" variant="secondary">
+          Ver más detalles
+        </Button>
         <Button
-          className="btnAddToCart btn-danger btn-md"
+          className="CardButton btn-md"
           onClick={handleAddToCart}
-          variant="primary"
+          variant="success"
         >
           Añadir al Carrito
         </Button>
@@ -47,3 +55,5 @@ export const IndividualProduct = ({ individualProduct, addToCart }) => {
     </Card>
   );
 };
+
+export default IndividualProduct;

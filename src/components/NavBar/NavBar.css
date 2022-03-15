@@ -1,55 +1,116 @@
 .Navigation {
-    display: flex;
-    width: 100%;
-    height: 5em;
-    background-color: rgb(155, 163, 163);
-    color: rgb(56, 52, 52);
-    font-weight: 400;
-    justify-items: center;
-  }
-  .List-ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 70%;
-    margin: 2%;
-  }
-  .btnNav {
-    font-size: 16px;
-    max-height: 80px;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: none;
-    color: rgb(39, 39, 39);
-  }
-  .btnNav :hover{
-    font-size: 18px ;
-    color: black;
-  }
-  .btnCartWidget :hover {
-    width: 55px;
+  display: flex;
+  width: 100%;
+  height: 5em;
+  background-color: rgb(202, 202, 202);
+  color: rgb(49, 46, 46);
+  font-weight: 400;
+  justify-items: center;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+}
+/**** LOGO ****/
+.containerLogo {
+  width: 12%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoNavBar {
+    width: 100px;
     height: auto;
-  }
-  .btnSignUpWidget :hover {
+    margin-top: 10px;
+}
+
+/**** LIST ****/
+.containerList {
+  width: 64%;
+  height: auto;
+  align-items: center;
+}
+.List-ul {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  margin: 18px 0;
+  padding-left: 0;
+}
+.List-ul :hover{
+  color: black;
+  border-bottom: solid 0.1px rgb(59, 59, 59);
+}
+.btnNav {
+  width: auto;
+  height: auto;
+  margin: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: none;
+  color: rgb(32, 32, 32);
+}
+
+/**** WIDGETS ****/
+.containerWidgets {
+  width: 24%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/**** Profile ****/
+.btnUserWidget {
+  width: 22%;
+  align-items: center;
+  text-align: center;
+}
+.userWidget {
+  height: auto;
+  margin: 2%;
+  padding: 15px;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/**** Cart ****/
+.btnCartWidget {
+  width: 28%;
+}
+.btnCartWidget :hover {
+  border-bottom: solid 0.1px rgb(59, 59, 59);
+}
+.CartWidget {
     width: 40px;
     height: auto;
-  }
-  
-  .Widgets {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 20%;
-    margin: 3%;
-    flex-direction: row;
-    gap: 45px;
-  }
-  .CartWidget {
-    width: 50px;
-    height: auto;
-  }
-  .SignUpWidget{
-    width: 36px;
-    height: auto;
-    margin-bottom: 3px;
-  }
+    margin-right: 5px;
+    margin: 6px 0;
+}
+
+/**** Sign Up ****/
+.btnSignUpWidget {
+  width: 30%;
+}
+.btnSignUpWidget :hover {
+  border-bottom: solid 0.1px rgb(59, 59, 59);
+}
+.SignUpWidget{
+  width: 30px;
+  height: auto;
+  padding-bottom: 12px;
+}
+
+/**** Logout ****/
+.btnLogout {
+  width: 34%;
+  height: auto;
+  margin-left: 6%;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}

@@ -1,11 +1,33 @@
 import "./SignupLoginWidget.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth, fs } from "../../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import NavBar from "../../components/NavBar/NavBar";
 
 const SignUpWidget = () => {
+  //Get Current User - Signup, Login, etc.
+  function GetCurrentUser() {
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          fs.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              setUser(snapshot.data().FullName);
+            });
+        } else {
+          setUser(null);
+        }
+      });
+    }, []);
+    return user;
+  }
+  const user = GetCurrentUser;
+
   const history = useNavigate();
 
   const [fullName, setFullName] = useState("");
@@ -13,7 +35,7 @@ const SignUpWidget = () => {
   const [password, setPassword] = useState("");
 
   const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccesMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -28,7 +50,7 @@ const SignUpWidget = () => {
             Password: password,
           })
           .then(() => {
-            setSuccesMsg(
+            setSuccessMsg(
               "Registro Exitoso. Ahora serás redireccionado automáticamente a Iniciar Sesión"
             );
             setFullName("");
@@ -36,8 +58,8 @@ const SignUpWidget = () => {
             setPassword("");
             setErrorMsg("");
             setTimeout(() => {
-              setSuccesMsg("");
-              history.push("/LoginWidget");
+              setSuccessMsg("");
+              history.push("/loginwidget");
             }, 3000);
           })
           .catch((error) => setErrorMsg(error.message));
@@ -49,8 +71,9 @@ const SignUpWidget = () => {
 
   return (
     <>
+      <NavBar user={user} />
       <h1 className="h1NavBar">Registrarse</h1>
-      <p className="pAlerta">(Pagina en proceso de construcción)</p>
+      {/* <p className="pAlerta">(Pagina en proceso de construcción)</p> */}
       <div className="container">
         {successMsg && (
           <>
@@ -58,8 +81,8 @@ const SignUpWidget = () => {
             <br></br>
           </>
         )}
-        <Form onSubmit={handleSignUp}>
-          <Form.Group className="mb-3" controlId="formBasicFullName">
+        <Form className="loginForm" onSubmit={handleSignUp}>
+          <Form.Group className="mt-5 mb-4" controlId="formBasicFullName">
             <Form.Label>Nombre y Apellido</Form.Label>
             <Form.Control
               type="name"
@@ -69,7 +92,7 @@ const SignUpWidget = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label>Correo Electrónico</Form.Label>
             <Form.Control
               type="email"
@@ -79,7 +102,7 @@ const SignUpWidget = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-4" controlId="formBasicPassword">
             <Form.Label>Contraseña</Form.Label>
             <Form.Control
               type="password"
@@ -92,8 +115,8 @@ const SignUpWidget = () => {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Button variant="primary" type="submit">
+          <Form.Group className="containerSubmit">
+            <Button className="btnSubmit" variant="primary" type="submit">
               Registrarme
             </Button>
             <br></br>
