@@ -61,6 +61,19 @@ const Productos = (props) => {
     getProducts();
   }, []);
 
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        fs.collection("Cart" + user.uid).onSnapshot((snapshot) => {
+          const qty = snapshot.docs.length;
+          setTotalProducts(qty);
+        });
+      }
+    });
+  });
+
   let Product;
   const addToCart = (product) => {
     if (uid !== null) {
@@ -81,7 +94,7 @@ const Productos = (props) => {
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} totalProducts={totalProducts} />
       {products.length > 0 && (
         <div>
           <h1 className="h1NavBar">Productos</h1>
@@ -98,11 +111,3 @@ const Productos = (props) => {
 };
 
 export default Productos;
-
-{
-  /* <Link to="/AddProduct" className="Link btnAddProduct">
-  <Button variant="primary" type="submit">
-    Añadir Producto
-  </Button>
-</Link> */
-}

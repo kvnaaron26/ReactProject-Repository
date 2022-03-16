@@ -70,10 +70,7 @@
 .userWidget {
   height: auto;
   margin: 2%;
-  padding: 15px;
   font-size: 15px;
-  text-decoration: none;
-  border-radius: 5px;
 }
 
 /**** Cart ****/
@@ -88,7 +85,9 @@
     height: auto;
     margin-right: 5px;
     margin: 6px 0;
+    padding-bottom: 2px;
 }
+
 
 /**** Sign Up ****/
 .btnSignUpWidget {
@@ -100,7 +99,7 @@
 .SignUpWidget{
   width: 30px;
   height: auto;
-  padding-bottom: 12px;
+  padding-bottom: 5px;
 }
 
 /**** Logout ****/

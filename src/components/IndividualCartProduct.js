@@ -44,36 +44,40 @@ const IndividualCartProduct = ({
           $ {cartProduct.price}
         </Card.Text>
         <hr />
-        <span>Cantidad</span>
+        <span className="CardSpan">Cantidad</span>
         <span className="ItemCounter">
           <Button
-            className="ItemCounterBtn btn-md cart-btn add"
+            className="ItemCounterBtn"
             onClick={handleCartProductDecrease}
             variant="success"
           >
-            <Icon icon={minus} size={20} />
+            <Icon icon={minus} size={15} />
           </Button>
+          <div className="CardQtyContainer">
+            <div className="CardQty">{cartProduct.qty}</div>
+          </div>
           <Button
-            className="ItemCounterBtn btn-md cart-btn remove"
+            className="ItemCounterBtn"
             onClick={handleCartProductIncrease}
             variant="success"
           >
-            <Icon icon={plus} size={20} />
+            <Icon icon={plus} size={15} />
           </Button>
         </span>
         <hr />
         <Button className="CardButton btn-md" variant="secondary">
           Ver más detalles
         </Button>
-        <div className="product-text price text-center CardPrice">
+        <span className="CardSpan">Total</span>
+        <div className="product-text price text-center CardTotalPrice">
           $ {cartProduct.TotalProductPrice}
         </div>
-        <div
-          className="btn btn-danger btn-md cart-btn"
+        <Button
+          className="CardButton btn-md btn-danger"
           onClick={handleCartProductDelete}
         >
           Eliminar
-        </div>
+        </Button>
       </Card.Body>
     </Card>
   );

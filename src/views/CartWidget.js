@@ -4,6 +4,7 @@ import { auth, fs } from "../firebase/firebaseConfig";
 import NavBar from "../components/NavBar/NavBar";
 import CartProducts from "../components/CartProducts";
 import { CartButtons } from "../components/CartButtons";
+import StripeCheckout from "react-stripe-checkout";
 
 const CartWidget = () => {
   //Get Current User - Signup, Login, etc.
@@ -46,7 +47,23 @@ const CartWidget = () => {
     });
   }, []);
 
-  // console.log(cartProducts);
+  const qty = cartProducts.map((cartProduct) => {
+    return cartProduct.qty;
+  });
+
+  const reducerOfQty = (accumulator, currentValue) =>
+    accumulator + currentValue;
+
+  const totalQty = qty.reduce(reducerOfQty, 0);
+
+  const price = cartProducts.map((cartProduct) => {
+    return cartProduct.TotalProductPrice;
+  });
+
+  const reducerOfPrice = (accumulator, currentValue) =>
+    accumulator + currentValue;
+
+  const totalPrice = price.reduce(reducerOfPrice, 0);
 
   let Product;
   const cartProductIncrease = (cartProduct) => {
@@ -86,9 +103,21 @@ const CartWidget = () => {
       }
     });
   };
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        fs.collection("Cart" + user.uid).onSnapshot((snapshot) => {
+          const qty = snapshot.docs.length;
+          setTotalProducts(qty);
+        });
+      }
+    });
+  });
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} totalProducts={totalProducts} />
       <h1 className="h1NavBar">Mi Carrito</h1>
       <CartButtons />
       {cartProducts.length > 0 && (
@@ -99,6 +128,20 @@ const CartWidget = () => {
               cartProductIncrease={cartProductIncrease}
               cartProductDecrease={cartProductDecrease}
             />
+          </div>
+          <div className="SummaryCart">
+            <h5 className="text-center">Resumen de tu Carrito</h5>
+            <hr></hr>
+            <div className="text-center">
+              Total Nº de Productos: <span>{totalQty}</span>
+            </div>
+            <div className="text-center">
+              Precio Total a Pagar: <span>$ {totalPrice}</span>
+            </div>
+            <br></br>
+            <div className="text-center">
+              <StripeCheckout></StripeCheckout>
+            </div>
           </div>
         </div>
       )}

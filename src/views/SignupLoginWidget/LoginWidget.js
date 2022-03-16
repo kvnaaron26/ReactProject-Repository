@@ -54,10 +54,21 @@ const LoginWidget = () => {
       })
       .catch((error) => setErrorMsg(error.message));
   };
+  const [totalProducts, setTotalProducts] = useState(0);
 
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        fs.collection("Cart" + user.uid).onSnapshot((snapshot) => {
+          const qty = snapshot.docs.length;
+          setTotalProducts(qty);
+        });
+      }
+    });
+  });
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} totalProducts={totalProducts} />
       <h1 className="h1NavBar">Iniciar Sesión</h1>
       {/* <p className="pAlerta">(Pagina en proceso de construcción)</p> */}
       <div className="container">

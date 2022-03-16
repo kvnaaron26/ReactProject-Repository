@@ -1,22 +1,29 @@
 /* CART BUTTONS */
 .containerCartButtons {
     width: 98%;
-    height: auto;
-    margin: 0 1%;
+    margin: -4% 1%;
     display: flex;
     justify-content: space-between;
+}
+.CartButtons {
+    width: 190px;
+    height: 65px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.iconCartButton {
+    width: 90%;
+    margin: 0 5%;
+    margin-bottom: -20px;
+    margin-top: -20px;
 }
 .continuarCompra {
     width: 20%;
     height: auto;
     display: flex;
     justify-content: flex-start;
-}
-.finalizarCompra {
-    width: 20%;
-    height: auto;
-    display: flex;
-    justify-content: flex-end;
 }
 /* INDIVIDUAL CART PRODUCT */
 .CartContainer {
@@ -40,6 +47,30 @@
     justify-content: space-around;
     cursor: pointer;
 }
+.CardSpan {
+    width: 80%;
+    margin: 0 10%;
+    padding: 5px;
+    height: 35px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -18px;
+    font-weight: 300;
+}
+.CardTotalPrice {
+    width: 80%;
+    margin: 15px 10%;
+    padding-bottom: 5px;
+    height: auto;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
 .CardContainer {
     width: 98%;
     margin: 3em 1%;
@@ -82,6 +113,7 @@
     padding: 10px;
 }
 .CardPrice {
+    width: 100%;
     background-color: rgb(245, 245, 245);
     padding: 5px;
     text-transform: uppercase;
